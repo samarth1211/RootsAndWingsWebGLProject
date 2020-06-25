@@ -204,7 +204,7 @@ var cancleAnimationFrame = window.cancleAnimationFrame ||
 // create audio context
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 
-var audioContext ;
+const audioContext = new AudioContext();
 
 function samMain()
 {
@@ -222,20 +222,6 @@ function samMain()
 	window.addEventListener("keydown",samKeyDown,false);
 	window.addEventListener("click",samMouseDown,false);
 	window.addEventListener("resize",samResize,false);
-
-	audioContext = new AudioContext();
-
-	/*	Audio Start	*/
-	// get the audio element
-	const audioElement = document.querySelector('audio');
-
-	// pass it into the audio context
-	const track = audioContext.createMediaElementSource(audioElement);
-	track.connect(audioContext.destination);
-
-	audioElement.play();
-	audioElement.pause();
-	/*	Audio Stop 	*/
 
 	// initialize WebGL
 	samInit();
@@ -271,8 +257,16 @@ function samKeyDown(event)
 			{
 				//control_scene1 = true;
 				bIsAnimating = true;
-				
-				audioElement.resume()
+				/*	Audio Start	*/
+				// get the audio element
+				const audioElement = document.querySelector('audio');
+
+				// pass it into the audio context
+				const track = audioContext.createMediaElementSource(audioElement);
+				track.connect(audioContext.destination);
+
+				audioElement.play();
+				/*	Audio Stop 	*/
 			}
 			
 			//control_scene2 = true;
