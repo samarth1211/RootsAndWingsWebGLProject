@@ -259,6 +259,24 @@ function samMain() {
   window.addEventListener("keydown", samKeyDown, false);
   window.addEventListener("click", samMouseDown, false);
   window.addEventListener("resize", samResize, false);
+  document.getElementById("btn").addEventListener("click", function () {
+    control_splashScreen = false;
+    if (bIsAnimating == false) {
+      //control_scene1 = true;
+      bIsAnimating = true;
+      toggleFullScreen();
+      /*	Audio Start	*/
+      // get the audio element
+      const audioElement = document.querySelector("audio");
+      const audioContext = new AudioContext();
+      // pass it into the audio context
+      const track = audioContext.createMediaElementSource(audioElement);
+      track.connect(audioContext.destination);
+      document.getElementById("btn").style = "display:none";
+      audioElement.play();
+      /*	Audio Stop 	*/
+    }
+  });
 
   // initialize WebGL
   samInit();
@@ -297,7 +315,7 @@ function samKeyDown(event) {
         // pass it into the audio context
         const track = audioContext.createMediaElementSource(audioElement);
         track.connect(audioContext.destination);
-        document.getElementById("spaceId").style = "display:none";
+
         audioElement.play();
         /*	Audio Stop 	*/
       }
