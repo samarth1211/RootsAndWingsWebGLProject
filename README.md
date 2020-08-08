@@ -17,9 +17,9 @@ Special Thanks to Harsh Patel, for intruducing us to herokuapp.com and give bett
 
 The Demo is made for Desktop envronment.
 It will have odd behaviours on Modile devices.
-Do not Watch it on Mobile Devices.
+Try not Watch it on Mobile Devices. Even if you do please try watching it on Mozilla FireFox.
 
 
 Recomended Browser: Mozilla FireFox
 
-Demo als Tested on: Google Chrome, Microsoft Edge(Latest Version)
+Demo also Tested on: Google Chrome, Microsoft Edge(Latest Version)
